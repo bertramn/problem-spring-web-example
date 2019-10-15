@@ -1,0 +1,31 @@
+---
+spring:
+  resources:
+    # disable static resource handling
+    add-mappings: false
+  mvc:
+    # handle the NoHandlerFoundException response in the problem management module
+    throw-exception-if-no-handler-found: true
+  http:
+    encoding:
+      # ensure content types are observed for strictness
+      force: true
+
+  # configure the main object mapper
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      adjust-dates-to-context-time-zone: false
+
+logging:
+  pattern:
+#    console: '%d{HH:mm:ss} %p at %C.%M\(%F:%L\) - %m%n'
+    console: '%p at %C.%M\(%F:%L\) - %m%n'
+  level:
+    root: INFO
+    com:
+      example: DEBUG
+    org:
+      springframework: DEBUG
