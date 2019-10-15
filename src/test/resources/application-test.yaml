@@ -1,0 +1,4 @@
+---
+app:
+  wiremock:
+    url: "http://localhost:${wiremock.server.port}"
